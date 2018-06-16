@@ -20,7 +20,7 @@ t1 = toc;  % End timing.
 tic
 r = 0 : M-1;
 c = 0 : N-1;
-[C, R] = meshgrid(c, r); %先是列，再行
+[C, R] = meshgrid(c, r); %相当于建立索引，先是列，再行
 g = A * sin(u0*R + v0*C);
 t2 = toc;
 
