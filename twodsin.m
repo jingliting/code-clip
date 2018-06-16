@@ -1,5 +1,5 @@
 function [rt, f, g] = twodsin(A, u0, v0, M, N)
-% Compare for loops vs. vectorization.£¨ÓÅ»¯matlabµÄÁ½ÖÖ·½Ê½£º1. ÏòÁ¿»¯Ñ­»· 2.Ô¤·ÖÅäÊı×é£©
+% Compare for loops vs. vectorization.ï¼ˆä¼˜åŒ–matlabçš„ä¸¤ç§æ–¹å¼ï¼š1. å‘é‡åŒ–å¾ªç¯ 2.é¢„åˆ†é…æ•°ç»„ï¼‰é€Ÿåº¦èƒ½æå‡30å€
 % The comparision is based on implementing the function
 % f(x, y) = Asin(u0x + v0y) for x = 0, 1, 2, ..., M-1 and
 % y = 0, 1, 2,...,N-1. The inputs to the function are
@@ -11,7 +11,7 @@ for r = 1:M
     u0x = u0 * (r - 1);
     for c = 1 : N
         v0y = v0 * (c-1);
-        f(r, c) = A * sin(u0x + v0y); % ±äÁ¿fµÄ³ß´ç»áËæ×Åµü´ú´ÎÊıµÄ¸Ä±ä¶ø¸Ä±ä£¬Ô¤·ÖÅäÄÚ´æÒÔÌá¸ßÔËĞĞËÙ¶È
+        f(r, c) = A * sin(u0x + v0y); % å˜é‡fçš„å°ºå¯¸ä¼šéšç€è¿­ä»£æ¬¡æ•°çš„æ”¹å˜è€Œæ”¹å˜ï¼Œé¢„åˆ†é…å†…å­˜ä»¥æé«˜è¿è¡Œé€Ÿåº¦
     end
 end
 t1 = toc;  % End timing.
@@ -20,7 +20,7 @@ t1 = toc;  % End timing.
 tic
 r = 0 : M-1;
 c = 0 : N-1;
-[C, R] = meshgrid(c, r); %ÏÈÊÇÁĞ£¬ÔÙĞĞ
+[C, R] = meshgrid(c, r); %å…ˆæ˜¯åˆ—ï¼Œå†è¡Œ
 g = A * sin(u0*R + v0*C);
 t2 = toc;
 
